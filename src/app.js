@@ -7,7 +7,8 @@ document.addEventListener('DOMContentLoaded', () => {
     data: {
       countries: [],
       country: null,
-      favourites:[]
+      favourites:[],
+      borders: []
     },
 
     mounted(){
@@ -30,10 +31,24 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(response => response.json())
         .then((data) => {
           this.country = data[0]})
+          this.borders = []
+          for (const border of this.country["borders"]) {
+            console.log(border);
+            // this.fetchCountryPopulation(border)
+          }
         },
 
       addFavourite: function (name) {
         this.favourites.push(name)
+      },
+
+      fetchCountryPopulation: function (name) {
+        fetch("https://restcountries.eu/rest/v2/alpha/"+name.toLowerCase())
+        .then(response => response.json())
+        .then((data) => {
+          console.log(data)
+        })
+        console.log(this.borders);
       }
 
       }

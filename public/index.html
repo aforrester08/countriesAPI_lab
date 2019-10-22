@@ -16,6 +16,9 @@
       <div v-if="country">
       <p>{{country["name"]}}</p>
       <img :src="country['flag']" alt="flag">
+      <ul v-for="country in country['borders']">
+        <li>{{country}}</li>
+      </ul>
       </div>
       <ul v-for = "country in countries">
         <li v-on:click="fetchCountry(country.name)">{{country.name}}: {{country.population}}</li>
