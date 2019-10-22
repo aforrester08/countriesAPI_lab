@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="./js/bundle.js"></script>
+  </head>
+  <body>
+
+    <div id="app">
+
+      <nav>
+        {{favourites}}
+      </nav>
+
+      <div v-if="country">
+      <p>{{country["name"]}}</p>
+      <img :src="country['flag']" alt="flag">
+      </div>
+      <ul v-for = "country in countries">
+        <li v-on:click="fetchCountry(country.name)">{{country.name}}: {{country.population}}</li>
+        <button type="button" v-on:click="addFavourite(country.name)">Add as Favourite</button>
+      </ul>
+    </div>
+
+  </body>
+</html>
