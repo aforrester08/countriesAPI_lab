@@ -5,8 +5,8 @@
   "main": "webpack.config.js",
   "dependencies": {
     "vue": "^2.6.10",
-    "webpack": "^4.41.2",
-    "webpack-cli": "^3.3.9"
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1"
   },
   "devDependencies": {},
   "scripts": {
